@@ -1,9 +1,14 @@
 {
   "scripts": {
-   "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-   "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css"
+    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css",
+    "dev": "npm run build -- --watch"
   },
   "devDependencies": {
-    "tailwindcss": "^3.3.3"
+    "prettier": "^3.9.5",
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "tailwindcss": "^4.3.2"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.2"
   }
 }
