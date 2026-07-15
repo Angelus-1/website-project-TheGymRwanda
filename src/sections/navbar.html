@@ -1,20 +1,55 @@
-<header
-  class="fixed top-0 left-0 z-50 w-full border-b border-transparent bg-[#F5F4F0]"
->
+<header class="fixed top-0 left-0 z-50 w-full bg-[#F5F4F0]">
   <div
-    class="mx-auto flex h-[104px] max-w-[1440px] items-start justify-between px-[34px] pt-[19px]"
+    class="mx-auto hidden h-[104px] max-w-[1440px] items-start justify-between px-[34px] pt-[19px] lg:flex"
   >
     <div class="flex flex-col text-[18px] leading-5">
-      <a href="#" class="text-black">DE</a>
-      <a href="#" class="text-black">EN</a>
+      <a href="#">DE</a>
+      <a href="#">EN</a>
     </div>
 
-    <div>
-      <h1 class="text-[48px] font-semibold tracking-tight">Baumeister</h1>
-    </div>
+    <h1 class="text-[48px] font-semibold tracking-tight">Baumeister</h1>
 
     <nav>
       <ul class="flex flex-col text-right text-[18px] leading-5">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#references">References</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div
+    class="flex h-[104px] items-start justify-between px-6 pt-[19px] lg:hidden"
+  >
+    <div class="flex flex-col text-sm leading-4">
+      <a href="#">DE</a>
+      <a href="#">EN</a>
+    </div>
+
+    <h1 class="text-3xl font-semibold">Baumeister</h1>
+
+    <button id="menu-btn">
+      <img src="/src/sections/assets/menu.svg" class="h-8 w-8" alt="Menu" />
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="fixed inset-0 hidden bg-[#F5F4F0] lg:hidden">
+    <div class="flex h-[104px] items-start justify-between px-6 pt-[19px]">
+      <div class="flex flex-col text-sm leading-4">
+        <a href="#">DE</a>
+        <a href="#">EN</a>
+      </div>
+
+      <h1 class="text-3xl font-semibold">Baumeister</h1>
+
+      <button id="close-btn">
+        <img src="/src/sections/assets/close.svg" class="h-8 w-8" alt="Close" />
+      </button>
+    </div>
+
+    <nav class="mt-16">
+      <ul class="space-y-10 text-center text-4xl font-medium">
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#references">References</a></li>

@@ -5,16 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/dist/output.css" />
     <title>Website project template</title>
+
+    <script>
+      const loadComponents = (id, url, callback) => {
+        fetch(url)
+          .then((response) => response.text())
+          .then((html) => {
+            document.getElementById(id).innerHTML = html;
+
+            if (callback) {
+              callback();
+            }
+          });
+      };
+    </script>
   </head>
-  <script>
-    const loadComponents = (id, url) => {
-      fetch(url)
-        .then((response) => response.text())
-        .then((html) => {
-          document.getElementById(id).innerHTML = html;
-        });
-    };
-  </script>
+
   <body>
     <div id="navbar"></div>
 
@@ -27,7 +33,22 @@
     </main>
 
     <script>
-      loadComponents("navbar", "./src/sections/navbar.html");
+      loadComponents("navbar", "./src/sections/navbar.html", () => {
+        const menuBtn = document.getElementById("menu-btn");
+        const closeBtn = document.getElementById("close-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuBtn.addEventListener("click", () => {
+          mobileMenu.classList.remove("hidden");
+          menuBtn.classList.add("hidden");
+        });
+
+        closeBtn.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          menuBtn.classList.remove("hidden");
+        });
+      });
+
       loadComponents("hero", "./src/sections/hero.html");
       loadComponents("about", "./src/sections/about.html");
       loadComponents("services", "./src/sections/services.html");
