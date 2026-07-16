@@ -1,19 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/dist/output.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/dist/output.css">
     <title>Website project template</title>
-  </head>
-  <script>
-    const loadComponents = (id, url) => {
-      fetch(url)
+</head>
+<script>
+    const loadComponents = (id, url) =>  {
+        fetch(url)
         .then((response) => response.text())
         .then((html) => {
-          document.getElementById(id).innerHTML = html;
+            document.getElementById(id).innerHTML = html;
         });
-    };
-  </script>
-  <body></body>
+    }
+
+    window.onload = () => {
+        loadComponents('footer', 'src/sections/footer.html');
+        loadComponents('main', 'src/sections/main.html');
+
+        
+    }
+</script>
+<body>
+    <div id="main"></div>
+    <div id="footer"></div>
+
+    
+</body>
 </html>
