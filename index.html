@@ -70,6 +70,14 @@
           mobileMenu.classList.add("hidden");
           menuBtn.classList.remove("hidden");
         });
+    };
+
+    window.onload = () => {
+      loadComponents("hero", "src/sections/hero.html");
+    };
+  </script>
+  <body>
+    <div id="hero"></div>
       });
 
       loadComponents("hero", "./src/sections/hero.html");
