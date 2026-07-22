@@ -1,17 +1,74 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/dist/output.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/dist/output.css">
     <title>Website project template</title>
-  </head>
-  <script>
-    const loadComponents = (id, url) => {
-      fetch(url)
+</head>
+<script>
+    const loadComponents = (id, url) =>  {
+        fetch(url)
         .then((response) => response.text())
         .then((html) => {
-          document.getElementById(id).innerHTML = html;
+            document.getElementById(id).innerHTML = html;
+        });
+    }
+
+    window.onload = () => {
+        loadComponents('footer', 'src/sections/footer.html');
+        loadComponents('main', 'src/sections/main.html');
+
+        
+    }
+</script>
+<body>
+    <div id="main"></div>
+    <div id="footer"></div>
+
+    
+</body>
+
+    <script>
+      const loadComponents = (id, url, callback) => {
+        fetch(url)
+          .then((response) => response.text())
+          .then((html) => {
+            document.getElementById(id).innerHTML = html;
+
+            if (callback) {
+              callback();
+            }
+          });
+      };
+    </script>
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+
+    <main class="pt-[104px]">
+      <div id="hero"></div>
+      <div id="about"></div>
+      <div id="services"></div>
+      <div id="references"></div>
+      <div id="contact"></div>
+    </main>
+
+    <script>
+      loadComponents("navbar", "./src/sections/navbar.html", () => {
+        const menuBtn = document.getElementById("menu-btn");
+        const closeBtn = document.getElementById("close-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuBtn.addEventListener("click", () => {
+          mobileMenu.classList.remove("hidden");
+          menuBtn.classList.add("hidden");
+        });
+
+        closeBtn.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          menuBtn.classList.remove("hidden");
         });
     };
 
@@ -21,5 +78,13 @@
   </script>
   <body>
     <div id="hero"></div>
+      });
+
+      loadComponents("hero", "./src/sections/hero.html");
+      loadComponents("about", "./src/sections/about.html");
+      loadComponents("services", "./src/sections/services.html");
+      loadComponents("references", "./src/sections/references.html");
+      loadComponents("contact", "./src/sections/contact.html");
+    </script>
   </body>
 </html>
