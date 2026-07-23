@@ -1,33 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/dist/output.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/dist/output.css" />
     <title>Website project template</title>
-</head>
-<script>
-    const loadComponents = (id, url) =>  {
-        fetch(url)
-        .then((response) => response.text())
-        .then((html) => {
-            document.getElementById(id).innerHTML = html;
-        });
-    }
+  </head>
+  <body>
+    <div id="navbar"></div>
 
-    window.onload = () => {
-        loadComponents('footer', 'src/sections/footer.html');
-        loadComponents('main', 'src/sections/main.html');
+    <main class="pt-26">
+      <div id="hero"></div>
+      <div id="main"></div>
+    </main>
 
-        
-    }
-</script>
-<body>
-    <div id="main"></div>
     <div id="footer"></div>
-
-    
-</body>
 
     <script>
       const loadComponents = (id, url, callback) => {
@@ -35,56 +22,33 @@
           .then((response) => response.text())
           .then((html) => {
             document.getElementById(id).innerHTML = html;
-
             if (callback) {
               callback();
             }
           });
       };
-    </script>
-  </head>
 
-  <body>
-    <div id="navbar"></div>
+      window.onload = () => {
+        loadComponents("navbar", "./src/sections/navbar.html", () => {
+          const menuBtn = document.getElementById("menu-btn");
+          const closeBtn = document.getElementById("close-btn");
+          const mobileMenu = document.getElementById("mobile-menu");
 
-    <main class="pt-[104px]">
-      <div id="hero"></div>
-      <div id="about"></div>
-      <div id="services"></div>
-      <div id="references"></div>
-      <div id="contact"></div>
-    </main>
+          menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.remove("hidden");
+            menuBtn.classList.add("hidden");
+          });
 
-    <script>
-      loadComponents("navbar", "./src/sections/navbar.html", () => {
-        const menuBtn = document.getElementById("menu-btn");
-        const closeBtn = document.getElementById("close-btn");
-        const mobileMenu = document.getElementById("mobile-menu");
-
-        menuBtn.addEventListener("click", () => {
-          mobileMenu.classList.remove("hidden");
-          menuBtn.classList.add("hidden");
+          closeBtn.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+            menuBtn.classList.remove("hidden");
+          });
         });
 
-        closeBtn.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden");
-          menuBtn.classList.remove("hidden");
-        });
-    };
-
-    window.onload = () => {
-      loadComponents("hero", "src/sections/hero.html");
-    };
-  </script>
-  <body>
-    <div id="hero"></div>
-      });
-
-      loadComponents("hero", "./src/sections/hero.html");
-      loadComponents("about", "./src/sections/about.html");
-      loadComponents("services", "./src/sections/services.html");
-      loadComponents("references", "./src/sections/references.html");
-      loadComponents("contact", "./src/sections/contact.html");
+        loadComponents("hero", "./src/sections/hero.html");
+        loadComponents("main", "./src/sections/main.html");
+        loadComponents("footer", "./src/sections/footer.html");
+      };
     </script>
   </body>
 </html>
