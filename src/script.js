@@ -15,6 +15,12 @@ window.addEventListener("load", () => {
     const closeBtn = document.getElementById("close-btn");
     const mobileMenu = document.getElementById("mobile-menu");
 
+    if (document.location.pathname != "/") {
+      document
+        .querySelector("#navbar #menu-btn img ")
+        .setAttribute("src", "/src/assets/green-menu-icon.webp");
+    }
+
     menuBtn.addEventListener("click", () => {
       mobileMenu.classList.remove("hidden");
       menuBtn.classList.add("hidden");
