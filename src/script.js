@@ -9,7 +9,7 @@ const loadComponents = (id, url, callback) => {
     });
 };
 
-window.onload = () => {
+window.addEventListener("load", () => {
   loadComponents("navbar", "./src/sections/navbar.html", () => {
     const menuBtn = document.getElementById("menu-btn");
     const closeBtn = document.getElementById("close-btn");
@@ -27,4 +27,4 @@ window.onload = () => {
   });
 
   loadComponents("footer", "./src/sections/footer.html");
-};
+});
