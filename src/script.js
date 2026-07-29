@@ -21,14 +21,16 @@ window.addEventListener("load", () => {
         .setAttribute("src", "/src/assets/green-menu-icon.webp");
     }
 
+    const mobileHeader = document.getElementById("mobile-header");
+
     menuBtn.addEventListener("click", () => {
       mobileMenu.classList.remove("hidden");
-      menuBtn.classList.add("hidden");
+      mobileHeader.classList.add("hidden");
     });
 
     closeBtn.addEventListener("click", () => {
       mobileMenu.classList.add("hidden");
-      menuBtn.classList.remove("hidden");
+      mobileHeader.classList.remove("hidden");
     });
   });
 
